@@ -1,0 +1,10 @@
+extends ../layouts/main/layout.pug
+
+block title
+  | Pages
+
+block content
+  ul
+    each page in pages
+      li
+        a(href=`${page}.html`) #{page}
