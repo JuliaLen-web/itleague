@@ -1,0 +1,238 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+.product
+  h2
+    +font(40px, 54px, bold)
+    text-align: center
+    +screen($mobile)
+      +font(22px, 30px, bold)
+
+  &__content
+    display: flex
+    flex-wrap: wrap
+    margin-top: 150px
+    +screen($tablet)
+      margin-top: 70px
+
+  &__item
+    box-sizing: border-box
+    max-width: calc(50% - 58px)
+    width: 100%
+    padding: 2px
+    position: relative
+    margin-bottom: 140px
+    +screen($tablet)
+      max-width: 100%
+      margin-bottom: 70px
+    +screen($mobile)
+      max-width: calc(100% + 20px)
+      width: calc(100% + 20px)
+      margin-right: -10px
+      margin-left: -10px
+
+    &:nth-child(2n+1)
+      margin-right: 116px
+      +screen($tablet)
+        margin-right: -10px
+
+    &-container
+      width: 100%
+      height: 100%
+      background: $base-darkest
+      box-sizing: border-box
+      padding: 100px 25px 70px 66px
+      +screen($tablet)
+        padding: 62px 13px 40px 30px
+
+      .button
+        position: absolute
+        right: 0
+        bottom: -30px
+        min-width: 299px
+        +screen($tablet)
+          min-width: 160px
+          bottom: -20px
+
+    &-icon
+      position: absolute
+      width: 150px
+      height: 150px
+      top: -75px
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 9px 0 0 9px
+      box-sizing: border-box
+      +screen($tablet)
+        padding: 5px 0 0 5px
+        width: 72px
+        height: 72px
+        top: -36px
+
+      img
+        +screen($tablet)
+          width: 70%
+          max-height: 70%
+
+      &:after
+        content: ''
+        position: absolute
+        width: 150px
+        height: 150px
+        right: -9px
+        top: 9px
+        bottom: -9px
+        left: 9px
+        +screen($tablet)
+          width: 72px
+          height: 72px
+          right: -5px
+          top: 5px
+          bottom: -5px
+          left: 5px
+
+    &-title
+      color: $base-lightest
+      +font(35px, 40px, bold)
+      margin: 28px 0
+      +screen($tablet)
+        +font(20px, 24px, bold)
+
+      @supports (background-clip: text)
+        -webkit-background-clip: text !important
+        -webkit-text-fill-color: transparent
+
+    &-text
+      p,
+      li
+        +font(19px, 26px)
+        +screen($mobile)
+          +font(16px, 22px)
+
+      ul
+        position: relative
+        padding-left: 40px
+        +screen($mobile)
+          padding-left: 22px
+
+      li
+        list-style: none
+        margin: 14px 0
+        +screen($mobile)
+          margin: 7px 0
+
+        &:before
+          content: ''
+          position: absolute
+          width: 11px
+          height: 11px
+          border-radius: 50%
+          left: 0
+          margin-top: 10px
+          +screen($mobile)
+            width: 8px
+            height: 8px
+
+    &_green
+      &,
+      .button,
+      li:before
+        background: $green-gradient
+
+      .product__item
+        &-title
+          @supports (background-clip: text)
+            background: $green-gradient
+
+        &-icon
+          background: url(../assets/img/product/rectangle-green.png) no-repeat 100%/100% $base-darkest
+
+          &:after
+            background: url(../assets/img/product/rectangle-green.png) no-repeat 100%/100%
+
+    &_orange
+      &,
+      .button,
+      li:before
+        background: $orange-gradient
+
+      .product__item
+        &-title
+          @supports (background-clip: text)
+            background: $orange-gradient
+
+        &-icon
+          background: url(../assets/img/product/rectangle-orange.png) no-repeat 100%/100% $base-darkest
+
+          &:after
+            background: url(../assets/img/product/rectangle-orange.png) no-repeat 100%/100%
+
+    &_yellow
+      &,
+      .button,
+      li:before
+        background: $yellow-gradient
+
+      .product__item
+        &-title
+          @supports (background-clip: text)
+            background: $yellow-gradient
+
+        &-icon
+          background: url(../assets/img/product/rectangle-yellow.png) no-repeat 100%/100% $base-darkest
+
+          &:after
+            background: url(../assets/img/product/rectangle-yellow.png) no-repeat 100%/100%
+
+    &_violet
+      &,
+      .button,
+      li:before
+        background: $violet-gradient
+
+      .product__item
+        &-title
+          @supports (background-clip: text)
+            background: $violet-gradient
+
+        &-icon
+          background: url(../assets/img/product/rectangle-violet.png) no-repeat 100%/100% $base-darkest
+
+          &:after
+            background: url(../assets/img/product/rectangle-violet.png) no-repeat 100%/100%
+
+    &_pink
+      &,
+      .button,
+      li:before
+        background: $pink-gradient
+
+      .product__item
+        &-title
+          @supports (background-clip: text)
+            background: $pink-gradient
+
+        &-icon
+          background: url(../assets/img/product/rectangle-pink.png) no-repeat 100%/100% $base-darkest
+
+          &:after
+            background: url(../assets/img/product/rectangle-pink.png) no-repeat 100%/100%
+
+    &_blue
+      &,
+      .button,
+      li:before
+        background: $blue-gradient
+
+      .product__item
+        &-title
+          @supports (background-clip: text)
+            background: $blue-gradient
+
+        &-icon
+          background: url(../assets/img/product/rectangle-blue.png) no-repeat 100%/100% $base-darkest
+
+          &:after
+            background: url(../assets/img/product/rectangle-blue.png) no-repeat 100%/100%
+

@@ -1,0 +1,17 @@
+@use './variables' as *
+
+=font($fontSize, $lineHeight, $weight: 400)
+  font-size: $fontSize
+  line-height: $lineHeight
+  font-weight: $weight
+
+=screen($size)
+  @if $size == $tablet
+    @media only screen and #{$tablet}
+      @content
+  @else if $size == $mobile
+    @media only screen and #{$mobile}
+      @content
+  @else
+    @media only screen and #{$size}
+      @content

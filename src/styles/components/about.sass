@@ -1,0 +1,114 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+.about
+  display: flex
+  background: url(../assets/img/logo/itl-logo-bg.png) no-repeat 100% 25%/66%
+  width: 100%
+  justify-content: space-between
+  padding: 150px 0
+  box-sizing: border-box
+  +screen($mobile)
+    padding: 65px 16px 65px 0
+    margin: 0 -16px 0 0
+    width: calc(100% + 16px)
+    flex-direction: column
+    align-content: space-between
+    justify-content: flex-start
+    height: 568px
+    flex-wrap: wrap
+    background: url(../assets/img/logo/itl-logo-bg-mobile.png) no-repeat 100% 80%/100%
+
+  &__main
+    width: 70%
+    +screen($mobile)
+      width: 80%
+      order: -1
+      height: 100vh
+
+    &-logo
+      +screen($tablet)
+        width: 100%
+
+      img
+        +screen($tablet)
+          width: 100%
+
+    h1
+      +font(55px, 75px, bold)
+      margin: 150px 0 50px
+      +screen($mobile)
+        +font(25px, 34px, bold)
+        margin: 50px 0 100px
+
+    .button
+      background: linear-gradient(90deg, #C835F3 0%, #2F92DA 100%)
+
+      &:before,
+      &:after
+        content: ''
+        position: absolute
+        transition: all .3s
+        left: 0
+        height: 2px
+        background: linear-gradient(90deg, #C835F3 0%, #2F92DA 100%)
+
+      &:before
+        top: -20px
+        width: 20%
+
+      &:after
+        bottom: -20px
+        width: 40%
+
+      &:hover
+        background: linear-gradient(90deg, #AA26D0 0%, #2481C5 100%)
+
+        &:before
+          width: 50%
+
+        &:after
+          width: 100%
+
+  &__contacts,
+  &__social
+    margin-top: 55px
+    display: flex
+    flex-direction: column
+    +screen($mobile)
+      margin-top: 0
+
+    a
+      text-decoration: none
+      height: fit-content
+      width: fit-content
+      writing-mode: tb-rl
+      color: $base
+      +font(25px, 34px, bold)
+      transition: all .3s
+      +screen($mobile)
+        +font(10px, 14px, bold)
+
+      &:hover
+        color: lighten($base, 10%)
+
+  &__contacts
+    flex-direction: column-reverse
+    justify-content: space-between
+    min-height: 100%
+    +screen($mobile)
+      order: 3
+      height: 50%
+      min-height: 50%
+
+    a
+      transform: rotate(180deg)
+
+  &__social
+    +screen($mobile)
+      height: 32%
+    a
+      text-transform: uppercase
+      +screen($mobile)
+        transform: rotate(180deg)
+

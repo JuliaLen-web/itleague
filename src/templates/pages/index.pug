@@ -1,10 +1,8 @@
-extends ../layouts/main/layout.pug
+extends ../layouts/layout
 
 block title
-  | Pages
+  | IT League
 
 block content
-  ul
-    each page in pages
-      li
-        a(href=`${page}.html`) #{page}
+  include ../components/about
+  include ../components/product
