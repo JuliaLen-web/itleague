@@ -1,0 +1,69 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+.feedback
+  &__form
+    border: 2px solid $base-lightest
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    padding: 70px 120px
+    box-sizing: border-box
+    margin-bottom: 80px
+    +screen($tablet)
+      margin-bottom: 50px
+
+    input
+      width: 50%
+      opacity: 0
+
+    textarea
+      width: 100%
+      opacity: 0
+
+    .button
+      background: linear-gradient(90deg, #C835F3 0%, #2F92DA 100%)
+      min-width: 256px
+      +screen($mobile)
+        min-width: 186px
+
+    &:before,
+    &:after
+      content: ''
+      position: absolute
+      border: 4px solid
+      border-image-slice: 1
+      +screen($tablet)
+        border: 2px solid
+        border-image-slice: 1
+
+    &:before
+      border-color: #C835F3
+      @supports (border-image-source: linear-gradient(180deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%))
+        border-image-source: linear-gradient(180deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%)
+      top: -16px
+      left: -15px
+      right: 15px
+      bottom: 19px
+      +screen($mobile)
+        top: -10px
+        left: -10px
+        right: 10px
+        bottom: 10px
+
+    &:after
+      border-color: #2F92DA
+      @supports (border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%))
+      border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%)
+      top: 16px
+      left: 16px
+      right: -16px
+      bottom: -19px
+      +screen($mobile)
+        top: 10px
+        left: 10px
+        right: -10px
+        bottom: -10px
+
+

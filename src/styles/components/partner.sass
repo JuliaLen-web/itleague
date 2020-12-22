@@ -1,0 +1,19 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+.partner
+  &__container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  &__image
+    max-width: 21%
+    margin-bottom: 40px
+    +screen($tablet)
+      max-width: 27%
+    +screen($mobile)
+      max-width: 40%
+
+    img
+      width: 90%
