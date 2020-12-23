@@ -2,36 +2,34 @@
 @use '../abstracts/mixins' as *
 
 .feedback
-  &__form
+  width: 75%
+  margin: 0 auto
+  +screen($tablet)
+    width: 100%
+
+  h2
+    margin-bottom: 75px
+    +screen($tablet)
+      margin-bottom: 40px
+
+  &__border
     border: 2px solid $base-lightest
     position: relative
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-    padding: 70px 120px
     box-sizing: border-box
     margin-bottom: 80px
+    width: 100%
     +screen($tablet)
       margin-bottom: 50px
-
-    input
-      width: 50%
-      opacity: 0
-
-    textarea
-      width: 100%
-      opacity: 0
-
-    .button
-      background: linear-gradient(90deg, #C835F3 0%, #2F92DA 100%)
-      min-width: 256px
-      +screen($mobile)
-        min-width: 186px
+    +screen($mobile)
+      margin: 0 5px 46px
+      width: calc(100% - 10px)
 
     &:before,
     &:after
       content: ''
+      box-sizing: border-box
       position: absolute
+      z-index: 1
       border: 4px solid
       border-image-slice: 1
       +screen($tablet)
@@ -42,13 +40,13 @@
       border-color: #C835F3
       @supports (border-image-source: linear-gradient(180deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%))
         border-image-source: linear-gradient(180deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%)
-      top: -16px
-      left: -15px
-      right: 15px
+      top: -17px
+      left: -18px
+      right: 14px
       bottom: 19px
       +screen($mobile)
-        top: -10px
-        left: -10px
+        top: -14px
+        left: -14px
         right: 10px
         bottom: 10px
 
@@ -56,14 +54,77 @@
       border-color: #2F92DA
       @supports (border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%))
       border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%)
-      top: 16px
-      left: 16px
-      right: -16px
+      top: 15px
+      left: 15px
+      right: -17px
       bottom: -19px
       +screen($mobile)
         top: 10px
         left: 10px
-        right: -10px
-        bottom: -10px
+        right: -14px
+        bottom: -14px
 
+  &__form
+    width: 100%
+    position: relative
+    z-index: 2
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    box-sizing: border-box
+    padding: 70px 120px
+    +screen($mobile)
+      padding: 44px 40px
+
+    .form
+      &__input
+        width: calc(50% - 15px)
+        margin-bottom: 30px
+        +screen($tablet)
+          width: 100%
+          margin-bottom: 18px
+
+        &:first-child
+          margin-right: 30px
+          +screen($tablet)
+            margin-right: 0
+
+      &__textarea,
+      &__checkbox
+        width: 100%
+
+      &__textarea
+        height: 125px
+        margin-bottom: 15px
+        +screen($mobile)
+          height: 80px
+
+      &__checkbox
+        margin-bottom: 30px
+        +screen($mobile)
+          margin-bottom: 20px
+
+    .button
+      background: $base-gradient
+      min-width: 256px
+      +screen($mobile)
+        min-width: 186px
+
+  &__links
+    display: flex
+    justify-content: space-between
+    margin-bottom: 65px
+    +screen($tablet)
+      margin-bottom: 25px
+
+    a
+      text-decoration: none
+      color: $base
+      +font(25px, 34px, bold)
+      transition: all .3s
+      +screen($mobile)
+        +font(10px, 14px, bold)
+
+      &:hover
+        color: lighten($base, 10%)
 

@@ -1,0 +1,33 @@
+mixin textarea(params)
+  .form__item.form__textarea(class=params.invalid ? 'form__item_invalid' : '')
+    .form__item-container
+      textarea.form__item-textarea(
+        placeholder=params.placeholder
+        name=params.name
+        required=!!params.required
+        pattern
+      )
+    span.form__item_invalid-text
+
+mixin input(params)
+  .form__item.form__input(class=params.invalid ? 'form__item_invalid' : '')
+    label
+      input.form__item-input(
+        type="text"
+        placeholder=params.placeholder
+        name=params.name
+        required=!!params.required
+      )
+    span.form__item_invalid-text
+
+mixin checkbox(params)
+  .form__checkbox(class=params.invalid ? 'form__checkbox_invalid' : '')
+    label.checkbox
+      input.checkbox__input(
+        type="checkbox"
+        name=params.name
+        required=!!params.required
+        pattern
+      )
+      .checkbox__img
+      p.checkbox__text !{params.text} #[a(href=params.link_href target="_blank") !{params.link}]

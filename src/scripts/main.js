@@ -1,1 +1,2 @@
-require('./plugins/viewport')
+require('./components/index')
+require('./plugins/index')

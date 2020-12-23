@@ -1,0 +1,166 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+.form
+  &__item
+    position: relative
+    &_invalid
+      &-text
+        display: none
+        position: absolute
+        top: calc(100% + 10px)
+
+      .form__item_invalid-text
+        display: block
+
+    &-container
+      box-sizing: border-box
+      padding: 13px 0
+      height: 100%
+
+    input,
+    textarea
+      width: 100%
+      background: transparent
+      outline: none
+      box-sizing: border-box
+      color: $base-lightest
+      +font(16px, 22px)
+      +screen($mobile)
+        +font(12px, 16px)
+
+      &::placeholder
+        color: $base-light
+        +font(16px, 22px)
+        +screen($mobile)
+          +font(12px, 16px)
+
+      &:focus::placeholder
+        color: $base-lightest
+        +font(16px, 22px, bold)
+        +screen($mobile)
+          +font(12px, 16px, bold)
+
+  &__input
+    input
+      border: none
+      border-bottom: 1px solid $base-light
+      padding: 10px 0
+      +screen($mobile)
+        padding-top: 0
+
+      &:focus
+        border-bottom: 2px solid $base-lightest
+        margin-top: -1px
+
+  &__textarea
+    border: 1px solid $base-light
+
+    textarea
+      resize: none
+      border: none
+      height: 100%
+      padding: 0 30px
+
+      &::-webkit-scrollbar
+        width: 8px
+        height: 8px
+        background: $base-darkest
+        +screen($tablet)
+          display: none
+
+        &-thumb
+          background: lighten($base, 10%)
+          border-radius: 4px
+          transition: all .3s
+
+          &:hover
+            background: lighten($base, 15%)
+
+  &__checkbox
+    .checkbox
+      display: flex
+      align-items: center
+      position: relative
+      +screen($mobile)
+        align-items: flex-start
+
+      &__input
+        position: absolute
+        left: 0
+        bottom: 0
+        opacity: 0
+        pointer-events: none
+
+        &:hover + .checkbox__img
+          border: 1px solid $base-lightest
+
+        &:checked + .checkbox__img
+          background: $violet-gradient
+          border: 1px solid $base-lightest
+
+        &:checked + .checkbox__img:before
+          opacity: 1
+
+      &__img
+        border: 1px solid $base-lightest
+        height: 15px
+        width: 15px
+        min-width: 15px
+        margin-right: 14px
+        position: relative
+        transition: all 0.3s
+        cursor: pointer
+        +screen($mobile)
+          margin-right: 10px
+          height: 13px
+          width: 13px
+          min-width: 13px
+
+        &::before
+          content: ""
+          width: 11px
+          height: 11px
+          display: block
+          position: relative
+          top: 3px
+          left: 2px
+          // background: no-repeat center/contain url(../assets/img/product/rectangle-green.svg)
+          opacity: 0
+          transition: all 0.3s
+
+      &__text
+        display: block
+        color: $base-lightest
+        +font(16px, 22px)
+        margin: 0
+        +screen($mobile)
+          +font(12px, 13px)
+
+        a
+          +font(16px, 22px)
+          color: $base-lightest
+          +screen($mobile)
+            +font(12px, 13px)
+
+    &_invalid .checkbox
+      &__img
+        border: 1px solid red
+
+      &__text
+        color: red
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus
+  border: none
+  -webkit-text-fill-color: $base-lightest
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset
+  transition: background-color 5000s ease-in-out 0s
+

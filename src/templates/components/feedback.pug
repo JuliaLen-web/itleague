@@ -1,12 +1,13 @@
 .feedback
   h2 Свяжитесь с нами, чтобы запустить свой собственный проект
-  form.feedback__form
-    input
-    input
-    textarea
-    .checkbox
-    button(type="submit").button Отправить
+  .feedback__border
+    form.feedback__form
+      +input({ placeholder: 'Ваше имя *', required: true })
+      +input({ placeholder: 'Email или телефон *', required: true, invalid: true })
+      +textarea({ placeholder: 'Сообщение' })
+      +checkbox({ text: 'Даю согласие на обработку', link: 'персональных данных', link_href: '', required: true })
+      button(type="submit").button Отправить
   .feedback__links
-    a Instagram
-    a +8y879879
-    a hello@itlead[skd
+    a(href='javascript:') Instagram
+    a(href='tel:+79313032533') +79313032533
+    a(href="mailto:hello@itleague.ru") hello@itleague.ru
