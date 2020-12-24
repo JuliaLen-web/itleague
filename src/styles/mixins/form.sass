@@ -92,18 +92,14 @@
         opacity: 0
         pointer-events: none
 
-        &:hover + .checkbox__img
-          border: 1px solid $base-lightest
-
-        &:checked + .checkbox__img
-          background: $violet-gradient
-          border: 1px solid $base-lightest
+        &:hover + .checkbox__img:before
+          opacity: 0.7
 
         &:checked + .checkbox__img:before
           opacity: 1
 
       &__img
-        border: 1px solid $base-lightest
+        background: $base-gradient
         height: 15px
         width: 15px
         min-width: 15px
@@ -117,17 +113,25 @@
           width: 13px
           min-width: 13px
 
-        &::before
+        &::before,
+        &::after
           content: ""
-          width: 11px
-          height: 11px
+          width: 13px
+          height: 13px
           display: block
-          position: relative
-          top: 3px
-          left: 2px
-          // background: no-repeat center/contain url(../assets/img/product/rectangle-green.svg)
+          position: absolute
+          transition: all .3s
+          top: 1px
+          left: 1px
+          background: $base-darkest
+
+        &::after
+          z-index: 0
+
+        &::before
+          background: url(../assets/img/checked.svg) no-repeat center/contain, $base-gradient
           opacity: 0
-          transition: all 0.3s
+          z-index: 1
 
       &__text
         display: block
@@ -145,10 +149,10 @@
 
     &_invalid .checkbox
       &__img
-        border: 1px solid red
+        border: 1px solid #FD3D84
 
       &__text
-        color: red
+        color: #FD3D84
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -161,6 +165,6 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus
   border: none
   -webkit-text-fill-color: $base-lightest
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset
+  -webkit-box-shadow: 0 0 0 1000px transparent inset
   transition: background-color 5000s ease-in-out 0s
 

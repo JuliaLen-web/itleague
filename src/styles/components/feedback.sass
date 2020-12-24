@@ -12,7 +12,7 @@
     +screen($tablet)
       margin-bottom: 40px
 
-  &__border
+  &__content
     border: 2px solid $base-lightest
     position: relative
     box-sizing: border-box
@@ -64,6 +64,35 @@
         right: -14px
         bottom: -14px
 
+    &-success-text
+      display: none
+      color: #00CB97
+      margin: 0 auto
+
+    &_success
+      .feedback__content-success-text
+        display: block
+
+      .feedback__form
+        display: none
+
+    &-preloader
+      content: ""
+      position: absolute
+      background: url(../assets/img/loader.svg) 50% 50% no-repeat
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: 10
+      opacity: 0
+      transition: all .3s
+      visibility: hidden
+
+      &_active
+        opacity: 1
+        visibility: visible
+
   &__form
     width: 100%
     position: relative
@@ -110,12 +139,18 @@
       +screen($mobile)
         min-width: 186px
 
+    button:disabled
+      background: $base-dark
+
   &__links
     display: flex
     justify-content: space-between
     margin-bottom: 65px
     +screen($tablet)
       margin-bottom: 25px
+
+    &-big
+      text-transform: uppercase
 
     a
       text-decoration: none
