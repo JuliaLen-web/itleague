@@ -3,7 +3,7 @@
 
 .about
   display: flex
-  background: url(../assets/img/logo/itl-logo-bg.png) no-repeat 100% 25%/66%
+  background: url(../assets/img/logo/itl-logo-bg.png) no-repeat 100% -60%/66%
   width: 100%
   justify-content: space-between
   padding: 150px 0
@@ -73,7 +73,9 @@
     margin-top: 55px
     display: flex
     flex-direction: column
+    justify-content: flex-end
     +screen($mobile)
+      justify-content: flex-start
       margin-top: 0
 
     a

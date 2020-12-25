@@ -2,7 +2,8 @@
 @use '../abstracts/mixins' as *
 
 .partner
-  margin-bottom: 120px
+  max-width: 1100px
+  margin: 0 auto 120px
   +screen($tablet)
     margin-bottom: 40px
 
@@ -27,6 +28,8 @@
     +screen($mobile)
       max-width: 40%
       min-width: 40%
+      padding: 10px 0
+      height: 120px
 
     &-image
       width: 100%
@@ -34,6 +37,24 @@
       display: flex
       justify-content: center
       align-items: center
+      +screen($mobile)
+        max-width: 200px
+
+      &_smaller
+        width: 85%
+        height: 85%
+        +screen($mobile)
+          width: 95%
+          height: 95%
+
+      &_bigger
+        margin: -10px -20px -10px 0
+        width: calc(100% + 20px)
+        height: calc(100% + 20px)
+        +screen($mobile)
+          margin: 0
+          height: 100%
+          width: 100%
 
       img
         height: inherit
