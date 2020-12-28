@@ -96,14 +96,15 @@ window.addEventListener('load', () => {
 
       preloader.classList.add('feedback__content-preloader_active')
       button.setAttribute('disabled', 'disabled')
-      formData.append('g-recaptcha-response', token)
 
-      grecaptcha.execute(document.head.querySelector('meta[name="g-recaptcha-key"]').content, {action: 'submit'}).then(function() {
+      grecaptcha.execute(document.head.querySelector('meta[name="g-recaptcha-key"]').content, {action: 'submit'}).then(function(token) {
+
+        formData.append('g-recaptcha-response', token)
         axios
           .post('/', formData, {
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
-              'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]')
+              'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
             }
           })
           .then(() => {
