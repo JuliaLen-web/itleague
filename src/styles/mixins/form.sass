@@ -4,14 +4,6 @@
 .form
   &__item
     position: relative
-    &_invalid
-      &-text
-        display: none
-        position: absolute
-        top: calc(100% + 10px)
-
-      .form__item_invalid-text
-        display: block
 
     &-container
       box-sizing: border-box
@@ -152,10 +144,23 @@
 
     &_invalid .checkbox
       &__img
-        border: 1px solid #FD3D84
+        background: #FD3D84
 
       &__text
         color: #FD3D84
+
+  &__item
+    &_invalid
+      input
+        border-bottom-color: #FD3D84
+
+      &-text
+        display: none
+        position: absolute
+        top: calc(100% + 10px)
+
+      .form__item_invalid-text
+        display: block
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
