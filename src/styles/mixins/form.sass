@@ -144,20 +144,25 @@
 
     &_invalid .checkbox
       &__img
-        background: #FD3D84
+        background: #C736F3
 
-      &__text
-        color: #FD3D84
+      &__text,
+      &__text a
+        color: #C736F3
 
   &__item
     &_invalid
       input
-        border-bottom-color: #FD3D84
 
       &-text
         display: none
         position: absolute
-        top: calc(100% + 10px)
+        top: calc(100% + 5px)
+        +font(12px, 14px)
+        color: #C736F3
+        +screen($mobile)
+          +font(+10px, 12px)
+          top: calc(100% + 2px)
 
       .form__item_invalid-text
         display: block

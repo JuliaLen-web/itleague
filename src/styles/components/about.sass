@@ -3,15 +3,18 @@
 
 .about
   display: flex
-  background: url(../assets/img/logo/itl-logo-bg.png) no-repeat 100% -60%/66%
   width: 100%
   justify-content: space-between
-  padding: 150px 0
+  align-items: center
+  position: relative
+  padding: 72px
   box-sizing: border-box
+  height: 100vh
+  overflow: hidden
   +screen($mobile)
-    padding: 65px 16px 65px 0
-    margin: 0 -16px 0 0
-    width: calc(100% + 16px)
+    padding: 65px 36px 65px 20px
+    margin-right: -20px
+    width: calc(100% + 20px)
     flex-direction: column
     align-content: space-between
     justify-content: flex-start
@@ -19,10 +22,23 @@
     flex-wrap: wrap
     background: url(../assets/img/logo/itl-logo-bg-mobile.png) no-repeat 100% 80%/100%
 
-  &__main
-    width: 70%
+  &__bg
+    position: absolute
+    width: 66%
+    height: 100%
+    max-width: 1000px
+    top: -70px
+    right: 0
+    z-index: -1
     +screen($mobile)
-      width: 80%
+      display: none
+
+    img
+      width: 100%
+
+  &__main
+    width: 80%
+    +screen($mobile)
       order: -1
       height: 100vh
 
@@ -36,7 +52,9 @@
 
     h1
       margin: 150px 0 50px
+      max-width: 910px
       +screen($mobile)
+        max-width: 100%
         margin: 50px 0 100px
 
     .button
@@ -70,13 +88,15 @@
 
   &__contacts,
   &__social
-    margin-top: 55px
+    padding: 120px 0 55px
+    box-sizing: border-box
+    height: 100%
     display: flex
     flex-direction: column
     justify-content: flex-end
     +screen($mobile)
       justify-content: flex-start
-      margin-top: 0
+      padding: 0
 
     a
       text-decoration: none
@@ -98,17 +118,18 @@
     min-height: 100%
     +screen($mobile)
       order: 3
-      height: 50%
-      min-height: 50%
+      height: 56%
+      min-height: 56%
 
     a
       transform: rotate(180deg)
+      +screen($mobile)
+        transform: rotate(0deg)
 
   &__social
     +screen($mobile)
       height: 32%
     a
       text-transform: uppercase
-      +screen($mobile)
-        transform: rotate(180deg)
+
 
