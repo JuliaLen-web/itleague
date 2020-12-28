@@ -84,35 +84,40 @@ window.addEventListener('load', () => {
   fields.forEach(field => field.addEventListener('change', listenerValue))
   fields.forEach(field => field.addEventListener('input', listenerValue))
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
+  grecaptcha.ready(function() {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
 
-    if (invalid()) {
-      return false
-    }
+      if (invalid()) {
+        return false
+      }
 
-    let formData = new FormData(form)
+      let formData = new FormData(form)
 
-    preloader.classList.add('feedback__content-preloader_active')
-    button.setAttribute('disabled', 'disabled')
+      preloader.classList.add('feedback__content-preloader_active')
+      button.setAttribute('disabled', 'disabled')
+      formData.append('g-recaptcha-response', token)
 
-    axios
-      .post('/', formData, {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]')
-        }
+      grecaptcha.execute(document.head.querySelector('meta[name="g-recaptcha-key"]').content, {action: 'submit'}).then(function() {
+        axios
+          .post('/', formData, {
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]')
+            }
+          })
+          .then(() => {
+            content.classList.add('feedback__content_success')
+          })
+          .catch(error => {
+            if (error.response.status === 422) {
+              handleErrors(error.response.data.errors)
+            }
+          })
+
+        preloader.classList.remove('feedback__content-preloader_active')
+        button.removeAttribute('disabled')
       })
-      .then(() => {
-        content.classList.add('feedback__content_success')
-      })
-      .catch(error => {
-        if (error.response.status === 422) {
-          handleErrors(error.response.data.errors)
-        }
-      })
-
-    preloader.classList.remove('feedback__content-preloader_active')
-    button.removeAttribute('disabled')
+    })
   })
 })

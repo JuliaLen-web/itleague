@@ -53,7 +53,7 @@
     &:after
       border-color: #2F92DA
       @supports (border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%))
-      border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%)
+        border-image-source: linear-gradient(0deg, #C835F3 0%, #2F92DA 51.56%, #00CB97 100%)
       top: 15px
       left: 15px
       right: -17px
@@ -69,12 +69,7 @@
       color: #00CB97
       margin: 0 auto
 
-    &_success
-      .feedback__content-success-text
-        display: block
 
-      .feedback__form
-        display: none
 
     &-preloader
       content: ""
@@ -163,3 +158,9 @@
       &:hover
         color: lighten($base, 10%)
 
+  &__content_success
+    .feedback__content-success-text
+      display: block
+
+    .feedback__form
+      display: none
