@@ -124,7 +124,7 @@
           z-index: 0
 
         &::before
-          background: url(../assets/img/checked.svg) no-repeat center/contain, $base-gradient
+          background: url(../assets/img/checked.svg) no-repeat center/80%, $base-gradient
           opacity: 0
           z-index: 1
 
@@ -143,17 +143,12 @@
             +font(12px, 13px)
 
     &_invalid .checkbox
-      &__img
-        background: #C736F3
-
       &__text,
       &__text a
         color: #C736F3
 
   &__item
     &_invalid
-      input
-
       &-text
         display: none
         position: absolute
