@@ -18,7 +18,7 @@ mixin input(params)
         name=params.name
         required=!!params.required
       )
-    span.form__item_invalid-text #{params.invalid}
+    span.form__item_invalid-text Данные введены неверно.
 
 mixin checkbox(params)
   .form__checkbox(class=params.invalid ? 'form__checkbox_invalid' : '')

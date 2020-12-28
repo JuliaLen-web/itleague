@@ -4,10 +4,10 @@
     p.feedback__content-success-text Запрос был отправлен. Мы свяжемся с вами в&nbsp;ближайшее время!
     .feedback__content-preloader
     form.feedback__form
-      +input({ placeholder: 'Ваше имя *', name: 'name', required: true, invalid: 'Неверно' })
+      +input({ placeholder: 'Ваше имя *', name: 'name', required: true })
       +input({ placeholder: 'Email или телефон *', name: 'email_or_phone', required: true })
       +textarea({ placeholder: 'Сообщение', name: 'description' })
-      +checkbox({ text: 'Даю согласие на обработку', link: 'персональных данных', link_href: '', name: 'confirm', required: true, invalid: true })
+      +checkbox({ text: 'Даю согласие на обработку', link: 'персональных данных', link_href: '', name: 'confirm', required: true })
       button.button(type="submit" disabled) Отправить
   .feedback__links
     a.feedback__links-big(href='https://www.instagram.com/itl_ru/' target="_blank") Instagram
