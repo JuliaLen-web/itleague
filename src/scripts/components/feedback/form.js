@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
   }
 
   const handleErrors = (errors) => {
-    for (const [key, value] of Object.entries(errors)) {
+    for (const [key, value] of Object.entries(errors || {})) {
       const field = form.querySelector('[name=' + key + ']')
 
       let parent
@@ -97,24 +97,23 @@ window.addEventListener('load', () => {
       preloader.classList.add('feedback__content-preloader_active')
       button.setAttribute('disabled', 'disabled')
 
-      grecaptcha.execute(document.head.querySelector('meta[name="g-recaptcha-key"]').content, {action: 'submit'}).then(function(token) {
-
+      grecaptcha.execute(document.head.querySelector('meta[name="g-recaptcha-key"]').content, {action: 'submit'}).then(async function(token) {
         formData.append('g-recaptcha-response', token)
-        axios
-          .post('/', formData, {
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-            }
-          })
-          .then(() => {
-            content.classList.add('feedback__content_success')
-          })
-          .catch(error => {
-            if (error.response.status === 422) {
-              handleErrors(error.response.data.errors)
-            }
-          })
+
+        try {
+          await axios.post('/', formData, {
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+              }
+            })
+
+          content.classList.add('feedback__content_success')
+        } catch (e) {
+          if (e.response.status === 422) {
+            handleErrors(e.response.data)
+          }
+        }
 
         preloader.classList.remove('feedback__content-preloader_active')
         button.removeAttribute('disabled')
