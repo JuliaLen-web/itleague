@@ -21,7 +21,6 @@
     align-content: space-between
     justify-content: flex-start
     min-height: 568px
-    max-height: 800px
     flex-wrap: wrap
     background: url(../assets/img/logo/itl-logo-bg-mobile.png) no-repeat 100% 150px/100%
 
@@ -43,11 +42,11 @@
     width: 80%
     +screen($mobile)
       order: -1
-      height: 100vh
+      min-height: 70vh
 
     &-logo
       +screen($tablet)
-        width: 100%
+        width: 85%
 
       img
         +screen($tablet)
