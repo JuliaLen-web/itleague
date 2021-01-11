@@ -10,9 +10,9 @@
   padding: 72px
   box-sizing: border-box
   height: 100vh
+  min-height: 768px
   overflow: hidden
-  +screen($tablet)
-    min-height: 768px
+  transition: height .3s
   +screen($mobile)
     padding: 65px 36px 65px 20px
     margin-right: -20px
@@ -22,9 +22,8 @@
     justify-content: flex-start
     min-height: 568px
     max-height: 800px
-    height: 568px
     flex-wrap: wrap
-    background: url(../assets/img/logo/itl-logo-bg-mobile.png) no-repeat 100% 80%/100%
+    background: url(../assets/img/logo/itl-logo-bg-mobile.png) no-repeat 100% 150px/100%
 
   &__bg
     position: absolute

@@ -15,6 +15,7 @@
       width: 100%
       background: transparent
       outline: none
+      border-radius: 0
       box-sizing: border-box
       color: $base-lightest
       +font(16px, 22px)
@@ -86,6 +87,8 @@
 
         &:hover + .checkbox__img:before
           opacity: 0.7
+          +screen($tablet)
+            opacity: 0
 
         &:checked + .checkbox__img:before
           opacity: 1
