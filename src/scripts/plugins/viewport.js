@@ -1,7 +1,3 @@
-const viewportUnitsBuggyfill = require('viewport-units-buggyfill')
-
-viewportUnitsBuggyfill.init({ force: true })
-
 window.addEventListener('load', () => {
   let lastWidth = window.innerWidth
 
