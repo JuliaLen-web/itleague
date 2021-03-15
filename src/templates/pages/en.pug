@@ -1,0 +1,23 @@
+extends ../layouts/layout
+
+block title
+  | IT League
+
+block content
+  .container
+    +about({ title: 'We’ve launched 19 projects all&nbsp;over Russia', button: 'create smth cool' })
+    +partner({ title: 'We are trusted by' })
+    +feedback({
+      title: 'Contact us to launch your own project',
+      success: 'The request has been sent. We will contact you shortly!',
+      name: 'Your name *',
+      name_error: 'Required field',
+      email: 'Email  or phone number *',
+      email_error: 'Required field',
+      textarea: 'Message',
+      checkbox_text: 'I give my consent to the processing of',
+      checkbox_link: 'personal data',
+      button: 'send'
+    })
+  +footer({ address: 'St. Petersburg, Krasnogvardeyskaya Sq., 3, office 175' })
+

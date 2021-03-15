@@ -1,0 +1,16 @@
+mixin feedback(params)
+  .feedback#feedback
+    h2 #{params.title}
+    .feedback__content
+      p.feedback__content-success-text !{params.success}
+      .feedback__content-preloader
+      form.feedback__form
+        +input({ placeholder: params.name, name: 'name', required: true, invalid: params.name_error })
+        +input({ placeholder: params.email, name: 'email_or_phone', required: true, invalid: params.email_error })
+        +textarea({ placeholder: params.textarea, name: 'description' })
+        +checkbox({ text: params.checkbox_text, link: params.checkbox_link, link_href: 'src/assets/agreement.pdf', name: 'confirm', required: true })
+        button.button(type="submit" disabled) #{params.button}
+    .feedback__links
+      //a.feedback__links-big(href='https://www.instagram.com/itl_ru/' target="_blank") Instagram
+      a(href='tel:+79313032533') +79313032533
+      a(href="mailto:hello@itleague.ru") hello@itleague.ru

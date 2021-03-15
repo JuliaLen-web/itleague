@@ -1,13 +1,22 @@
 extends ../layouts/layout
-include ../mixins/form
 
 block title
   | IT League
 
 block content
-  include ../components/about
   .container
-    // include ../components/product
-    // include ../components/service
-    include ../components/partner
-    include ../components/feedback
+    +about({ title: 'Мы запустили 19&nbsp;проектов по&nbsp;всей России', button: 'Замутить что-нибудь крутое' })
+    +partner({ title: 'Нам доверяют' })
+    +feedback({
+      title: 'Свяжитесь с нами, чтобы запустить свой собственный проект',
+      success: 'Запрос был отправлен. Мы свяжемся с вами в&nbsp;ближайшее время!',
+      name: 'Ваше имя *',
+      name_error: 'Поле обязательно для заполнения',
+      email: 'Email или телефон *',
+      email_error: 'Значение поля должно содержать e-mail или телефон',
+      textarea: 'Сообщение',
+      checkbox_text: 'Даю согласие на обработку',
+      checkbox_link: 'персональных данных',
+      button: 'Отправить'
+    })
+  +footer({ address: 'Санкт-Петербург, Красногвардейская пл., 3, офис 175' })

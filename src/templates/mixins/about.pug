@@ -1,0 +1,14 @@
+mixin about(params)
+  .about
+    .about__contacts
+      a(href='tel:+79313032533') +79313032533
+      a(href="mailto:hello@itleague.ru") hello@itleague.ru
+    .about__main
+      .about__main-logo
+        img(src=require('@/assets/img/logo/itl-logo.svg') alt="")
+      h1 !{params.title}
+      a.button(href='#feedback') #{params.button}
+    .about__bg
+      img(src=require('@/assets/img/logo/itl-logo-bg.png') alt="")
+    //.about__social
+    //  a(href='https://www.instagram.com/itl_ru/' target="_blank") Instagram
