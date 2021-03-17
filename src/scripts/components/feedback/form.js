@@ -101,7 +101,7 @@ window.addEventListener('load', () => {
         formData.append('g-recaptcha-response', token)
 
         try {
-          await axios.post('/', formData, {
+          await axios.post(document.querySelector(".feedback__form").action, formData, {
               headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
