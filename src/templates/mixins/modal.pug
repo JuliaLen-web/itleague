@@ -1,0 +1,18 @@
+mixin modal(params)
+  .modal(id=params.id)
+    .modal__body
+      .modal__close
+        img(src=require('@/assets/img/close.svg') alt="")
+      .modal__content
+        section.modal__content-info
+          h3 #{params.title}
+          if (params.subtitle)
+          span.modal__content-subtitle #{params.subtitle}
+          p #{params.firstParagraph}
+          if (params.secondParagraph)
+            p #{params.secondParagraph}
+          if (params.thirdParagraph)
+            p #{params.thirdParagraph}
+        .modal__content-background
+          img(src=params.background alt="")
+

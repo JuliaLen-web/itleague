@@ -43,6 +43,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
     "axios": "^0.21.1",
+    "body-scroll-lock": "*",
     "normalize.css": "^8.0.1"
   }
 }
