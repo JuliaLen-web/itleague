@@ -7,12 +7,10 @@ mixin modal(params)
         section.modal__content-info(class=params.buttonHref ? 'modal__content-info_withBtn' : '')
           h3.modal__content-info-title #{params.title}
           if (params.subtitle)
-          span.modal__content-info-subtitle #{params.subtitle}
-          p #{params.paragraphFirst}
+          span.modal__content-info-subtitle !{params.subtitle}
+          p !{params.paragraphFirst}
           if (params.paragraphSecond)
-            p #{params.paragraphSecond}
-          if (params.paragraphThird)
-            p #{params.paragraphThird}
+            p !{params.paragraphSecond}
           if (params.statisticsFirst)
             .modal__content-info-statistics
               .modal__content-info-statistics-item
