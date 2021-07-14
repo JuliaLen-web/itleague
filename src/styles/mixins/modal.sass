@@ -110,6 +110,9 @@
         align-items: center
         justify-content: space-between
         flex-wrap: wrap
+        margin-bottom: 20px
+        +screen($tablet)
+          margin-bottom: 10px
 
         &-item
           display: flex
@@ -117,15 +120,21 @@
           align-items: center
           justify-content: center
           min-width: fit-content
+          box-sizing: border-box
           +screen($desktop-sm)
+            padding: 0 5px
             margin: 10px auto
 
           span
             &:first-child
               +font(36px, 49px, bold)
+              +screen($desktop-sm)
+                +font(30px, 40px, bold)
 
             &:last-child
               +font(18px, 25px, bold)
+              +screen($desktop-sm)
+                +font(16px, 22px, bold)
 
       &_withBtn
         justify-content: flex-start
@@ -143,7 +152,7 @@
 
     &-background
       position: relative
-      height: 0
+      height: auto
       overflow: hidden
       box-sizing: border-box
       padding-bottom: calc(100% / 2)
@@ -156,6 +165,7 @@
         top: 0
         width: calc(100% + 2px)
         height: auto
-        margin: -1px
 
+        min-height: calc(100% + 2px)
+        margin: -1px
 
