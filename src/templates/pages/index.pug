@@ -6,7 +6,7 @@ block title
 block content
   +about({ title: 'Мы запустили 144&nbsp;проекта по&nbsp;всей России', button: 'Замутить что-нибудь крутое' })
   .container
-    +partner({ title: 'Кейсы' })
+    +cases({ title: 'Кейсы' })
     +feedback({
       title: 'Свяжитесь с нами, чтобы запустить свой собственный проект',
       success: 'Запрос был отправлен. Мы свяжемся с вами в&nbsp;ближайшее время!',
@@ -20,4 +20,5 @@ block content
       button: 'Отправить'
     })
   +footer({ address: 'Санкт-Петербург, Красногвардейская пл., 3, офис 175' })
+  include ../components/modals
 

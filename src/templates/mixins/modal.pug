@@ -4,15 +4,28 @@ mixin modal(params)
       .modal__close
         img(src=require('@/assets/img/close.svg') alt="")
       .modal__content
-        section.modal__content-info
-          h3 #{params.title}
+        section.modal__content-info(class=params.buttonHref ? 'modal__content-info_withBtn' : '')
+          h3.modal__content-info-title #{params.title}
           if (params.subtitle)
-          span.modal__content-subtitle #{params.subtitle}
-          p #{params.firstParagraph}
-          if (params.secondParagraph)
-            p #{params.secondParagraph}
-          if (params.thirdParagraph)
-            p #{params.thirdParagraph}
+          span.modal__content-info-subtitle #{params.subtitle}
+          p #{params.paragraphFirst}
+          if (params.paragraphSecond)
+            p #{params.paragraphSecond}
+          if (params.paragraphThird)
+            p #{params.paragraphThird}
+          if (params.statisticsFirst)
+            .modal__content-info-statistics
+              .modal__content-info-statistics-item
+                span #{params.statisticsFirstNum}
+                span #{params.statisticsFirst}
+              .modal__content-info-statistics-item
+                span #{params.statisticsSecondNum}
+                span #{params.statisticsSecond}
+              .modal__content-info-statistics-item
+                span #{params.statisticsThirdNum}
+                span #{params.statisticsThird}
+          if (params.buttonHref)
+            a.button(href=params.buttonHref) Перейти на сайт
         .modal__content-background
           img(src=params.background alt="")
 

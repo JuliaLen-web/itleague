@@ -1,0 +1,9 @@
+mixin cases(params)
+  .cases
+    h2 #{params.title}
+    .cases__container
+      include ../components/cases-items
+
+mixin cases-item(params)
+  .cases__block(data-modal=params.modal)
+    img(src=params.image alt="")
