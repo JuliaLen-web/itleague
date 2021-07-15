@@ -19,9 +19,10 @@ mixin modal(params)
               .modal__content-info-statistics-item
                 span #{params.statisticsSecondNum}
                 span #{params.statisticsSecond}
-              .modal__content-info-statistics-item
-                span #{params.statisticsThirdNum}
-                span #{params.statisticsThird}
+              if (params.statisticsThird)
+                .modal__content-info-statistics-item
+                  span #{params.statisticsThirdNum}
+                  span #{params.statisticsThird}
           if (params.buttonHref)
             a.button(href=params.buttonHref target="_blank") Перейти на сайт
         .modal__content-background

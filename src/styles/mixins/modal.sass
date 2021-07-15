@@ -108,7 +108,7 @@
       &-statistics
         display: flex
         align-items: center
-        justify-content: space-between
+        justify-content: space-around
         flex-wrap: wrap
         margin-bottom: 20px
         +screen($tablet)
@@ -124,6 +124,8 @@
           +screen($desktop-sm)
             padding: 0 5px
             margin: 10px auto
+          +screen($mobile)
+            min-width: 50%
 
           span
             &:first-child
