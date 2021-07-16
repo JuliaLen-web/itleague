@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
   const modalBtn = document.querySelectorAll('[data-modal]')
   const modals = document.querySelectorAll('.modal')
   const close = document.querySelectorAll('.modal__close')
+  const body = document.querySelector('body')
 
   let activeModal
 
@@ -18,9 +19,9 @@ window.addEventListener('load', () => {
     modal.classList.toggle('modal_active')
 
     if (document.querySelector('.modal__active')) {
-      enableBodyScroll(activeModal)
+      body.classList.add('body_fixed')
     } else {
-      disableBodyScroll(activeModal)
+      body.classList.remove('body_fixed')
     }
   }
 
@@ -28,9 +29,8 @@ window.addEventListener('load', () => {
     event.stopPropagation()
     const list = event.target.classList
 
-    if (list.contains('modal') || list.contains('modal__close')) {
+    if (list.contains('modal')) {
       activeModal.classList.remove('modal_active')
-      enableBodyScroll(activeModal)
     }
   }
 
@@ -43,9 +43,7 @@ window.addEventListener('load', () => {
     })
   })
 
-
   close.forEach(el => el.addEventListener('click', (e) => {
     activeModal.classList.remove('modal_active')
-    enableBodyScroll(activeModal)
   }))
 })
